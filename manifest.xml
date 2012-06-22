@@ -6,7 +6,7 @@
         <global_param name="CUSTOM_FOOTER_CONTENT" type="textarea" label="CONF_MESSAGE[Footer Content]" description="CONF_MESSAGE[Display this content in the footer]" mandatory="false" default="Your custom footer content"/>
         
 
-        <global_param expose="true" name="CUSTOM_SELECT_LIST" type="select" choices="1|Unclassified, 2|Classified, 3|Top Secret" label="CONF_MESSAGE[Site Classification Level]" description="CONF_MESSAGE[Select the Classification Level]" mandatory="true" default="1"/>
+        <global_param expose="true" name="SITE_CLASSIFICATION_LEVEL" type="select" choices="1|Unclassified, 2|Classified, 3|Top Secret" label="CONF_MESSAGE[Site Classification Level]" description="CONF_MESSAGE[Select the Classification Level]" mandatory="true" default="1"/>
 
     </server_settings>
 
