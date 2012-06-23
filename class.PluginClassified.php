@@ -13,16 +13,43 @@ class PluginClassified extends AJXP_Plugin {
      * @return void
      */
     public function parseSpecificContributions(&$contribNode){
+        
         if($contribNode->nodeName != "client_configs") return;
+        
         $actionXpath=new DOMXPath($contribNode->ownerDocument);
+        
         $footerTplNodeList = $actionXpath->query('template[@name="bottom"]', $contribNode);
         $footerTplNode = $footerTplNodeList->item(0);
-        $content = $this->pluginConf["SITE_CLASSIFICATION_LEVEL"];
+        
+        $headerTplNodeList = $actionXpath->query('template[@name="head"]', $contribNode);
+        $headerTplNode = $headerTplNodeList->item(0);
+
+        $siteClassificationLevel = $this->pluginConf["SITE_CLASSIFICATION_LEVEL"];
+
+        //$content = $this->pluginConf["SITE_CLASSIFICATION_LEVEL"];
+        
+        $content = $siteClassificationLevel;
+
         $content = str_replace("\\n", "<br>", $content);
+        
         $cdata = '<div id="optional_bottom_div" style="font-family:arial;padding:10px;">'.$content.'</div>';
         $cdataSection = $contribNode->ownerDocument->createCDATASection($cdata);
+        
         foreach($footerTplNode->childNodes as $child) $footerTplNode->removeChild($child);
-        $footerTplNode->appendChild($cdataSection);   
+        $footerTplNode->appendChild($cdataSection);  
+
+        
+        $hdata = '<div id="optional_header_div" style="font-family:arial;padding:10px;">'.$content.'</div>';
+        $hcdataSection = $contribNode->ownerDocument->createCDATASection($cdata);
+        
+        foreach($headerTplNode->childNodes as $child) $headerTplNode->removeChild($child);
+        $headerTplNode->appendChild($hcdataSection);          
+
+
+
+
+
+
     }
 }
 
