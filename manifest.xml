@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ajxp_plugin  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="file:../core.ajaxplorer/ajxp_registry.xsd" name="classified" enabled="false" label="CONF_MESSAGE[Classified]" description="CONF_MESSAGE[This plugin adds a custom header and footer showing the site classification level.]" >
     <server_settings>
-        <global_param name="SHOW_CUSTOM_FOOTER" type="boolean" label="CONF_MESSAGE[Custom Footer]" description="CONF_MESSAGE[Show a custom footer div]" mandatory="false" default="false"/>
-        <global_param name="CUSTOM_FOOTER_CONTENT" type="textarea" label="CONF_MESSAGE[Footer Content]" description="CONF_MESSAGE[Display this content in the footer]" mandatory="false" default="Your custom footer content"/>
+        
         <global_param expose="true" name="SITE_CLASSIFICATION_LEVEL" type="select" choices="1|Unclassified, 2|Classified, 3|Top Secret" label="CONF_MESSAGE[Site Classification Level]" description="CONF_MESSAGE[Select the Classification Level]" mandatory="true" default="1"/>
         
     </server_settings>
