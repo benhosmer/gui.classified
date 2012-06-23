@@ -1,33 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ajxp_plugin  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="file:../core.ajaxplorer/ajxp_registry.xsd" name="classified" enabled="false" label="CONF_MESSAGE[Classified Banner]" description="CONF_MESSAGE[This plugin places a banner at the top and bottom of the site indicating the classification level for the site.]" >
+<ajxp_plugin  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="file:../core.ajaxplorer/ajxp_registry.xsd" name="classified" enabled="false" label="CONF_MESSAGE[Classified Plugin]" description="CONF_MESSAGE[This is the classified plugin.]" >
     <server_settings>
-        
+        <global_param name="SHOW_CUSTOM_FOOTER" type="boolean" label="CONF_MESSAGE[Custom Footer]" description="CONF_MESSAGE[Show a custom footer div]" mandatory="false" default="false"/>
         <global_param name="CUSTOM_FOOTER_CONTENT" type="textarea" label="CONF_MESSAGE[Footer Content]" description="CONF_MESSAGE[Display this content in the footer]" mandatory="false" default="Your custom footer content"/>
-        
-
         <global_param expose="true" name="SITE_CLASSIFICATION_LEVEL" type="select" choices="1|Unclassified, 2|Classified, 3|Top Secret" label="CONF_MESSAGE[Site Classification Level]" description="CONF_MESSAGE[Select the Classification Level]" mandatory="true" default="1"/>
-
-
-
+        
     </server_settings>
 
     <client_settings>
         <resources>
-            <i18n namespace="classified" path="plugins/gui.classified/res/i18n"/>
+            
         </resources>
     </client_settings>
 
 	<registry_contributions>
-		
-        <client_configs uuidAttr="name">
-			<template name="head" element="ajxp_desktop" position="top"><![CDATA[
-				<div id="optional_header_div" style="background-color: #999; color: white;font-family:arial;padding:10px;">SITE CLASSIFICATION LEVEL - Header</div>
+		<client_configs uuidAttr="name">
+			<template name="bottom" element="ajxp_desktop" position="after"><![CDATA[
+				<div id="optional_bottom_div" style="font-family:arial;padding:10px;">This CDATA section will be overriden by the PHP part of the plugin</div>
 			]]></template>
-
-            <template name="bottom" element="ajxp_desktop" position="after"><![CDATA[
-                <div id="optional_bottom_div" style="font-family:arial;padding:10px;">SITE CLASSIFICATION LEVEL - Footer</div>
-            ]]></template>
-
+			<template name="head" element="ajxp_desktop" position="top"><![CDATA[
+				<div id="optional_header_div" style="background-color: #999; color: white;font-family:arial;padding:10px;">Your custom header content</div>
+			]]></template>
 		</client_configs>
         <actions>
             
