@@ -25,17 +25,16 @@ class PluginClassified extends AJXP_Plugin {
         $headerTplNode = $headerTplNodeList->item(0);
 
         $siteClassificationLevel = $this->pluginConf["SITE_CLASSIFICATION_LEVEL"];
+        
+        if ($siteClassificationLevel == 1)
+            $content = "Unclassified";
+        if ($siteClassificationLevel == 2)
+            $content = "Classified";
+        if ($siteClassificationLevel == 3)
+            $content = "Top Secret";
+        
+        // *** Maybe use the $content variable to get the proper CSS file *** 
 
-        //$content = $this->pluginConf["SITE_CLASSIFICATION_LEVEL"];
-        
-        
-
-        $content = $siteClassificationLevel;
-
-        //$content = str_replace("\\n", "<br>", $content);
-        
-        //$cdata = '<div id="optional_bottom_div" style="font-family:arial;padding:10px;">'.$content.'</div>';
-        
         $cdata = '<div id="optional_bottom_div">
         <link type="text/css" rel="stylesheet" href="plugins/gui.classified/css/style.css" media="screen">'.$content.'</div>';
         
@@ -54,12 +53,7 @@ class PluginClassified extends AJXP_Plugin {
         $hcdataSection = $contribNode->ownerDocument->createCDATASection($hdata);
         
         foreach($headerTplNode->childNodes as $child) $headerTplNode->removeChild($child);
-        $headerTplNode->appendChild($hcdataSection);          
-
-        
-
-
-
+        $headerTplNode->appendChild($hcdataSection);
 
     }
 }
