@@ -28,24 +28,35 @@ class PluginClassified extends AJXP_Plugin {
 
         //$content = $this->pluginConf["SITE_CLASSIFICATION_LEVEL"];
         
+        
+
         $content = $siteClassificationLevel;
 
-        $content = str_replace("\\n", "<br>", $content);
+        //$content = str_replace("\\n", "<br>", $content);
         
-        $cdata = '<div id="optional_bottom_div" style="font-family:arial;padding:10px;">'.$content.'</div>';
+        //$cdata = '<div id="optional_bottom_div" style="font-family:arial;padding:10px;">'.$content.'</div>';
+        
+        $cdata = '<div id="optional_bottom_div">
+        <link type="text/css" rel="stylesheet" href="plugins/gui.classified/css/style.css" media="screen">'.$content.'</div>';
+        
+
+
         $cdataSection = $contribNode->ownerDocument->createCDATASection($cdata);
         
         foreach($footerTplNode->childNodes as $child) $footerTplNode->removeChild($child);
         $footerTplNode->appendChild($cdataSection);  
 
         
-        $hdata = '<div id="optional_header_div" style="font-family:arial;padding:10px;">'.$content.'</div>';
-        $hcdataSection = $contribNode->ownerDocument->createCDATASection($cdata);
+        $hdata = '<div id="optional_header_div">
+        <link type="text/css" rel="stylesheet" href="plugins/gui.classified/css/style.css" media="screen">'.$content.'</div>';
+        
+
+        $hcdataSection = $contribNode->ownerDocument->createCDATASection($hdata);
         
         foreach($headerTplNode->childNodes as $child) $headerTplNode->removeChild($child);
         $headerTplNode->appendChild($hcdataSection);          
 
-
+        
 
 
 
