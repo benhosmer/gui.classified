@@ -1,0 +1,7 @@
+/*Classified Style Sheet -- Color Yellow*/
+
+#optional_header_div, #optional_bottom_div {
+	color: black;
+	background-color: #ffff00;
+	text-align: center;
+} 

@@ -1,13 +1,5 @@
-#optional_header_div {
-	background-color: blue;
-	color: white;
-}
-
-#optional_bottom_div {
-	background-color: purple;
-	color: white;
-}
-
 #optional_header_div, #optional_bottom_div {
+	color: #000;
 	text-align: center;
+
 } 

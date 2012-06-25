@@ -1,0 +1,7 @@
+/* Top-Secret Style Sheet -- Color Red */
+
+#optional_header_div, #optional_bottom_div {
+	color: black;
+	background-color: #ff0000;
+	text-align: center;
+} 
