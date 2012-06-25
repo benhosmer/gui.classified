@@ -25,20 +25,23 @@ class PluginClassified extends AJXP_Plugin {
         $headerTplNode = $headerTplNodeList->item(0);
 
         $siteClassificationLevel = $this->pluginConf["SITE_CLASSIFICATION_LEVEL"];
-        
-        if ($siteClassificationLevel == 1)
-            $content = "Unclassified";
-        if ($siteClassificationLevel == 2)
-            $content = "Classified";
-        if ($siteClassificationLevel == 3)
-            $content = "Top Secret";
-        
-        // *** Maybe use the $content variable to get the proper CSS file *** 
-/*
-        $cdata = '<div id="optional_bottom_div">
-        <link type="text/css" rel="stylesheet" href="plugins/gui.classified/css/style.css" media="screen">'.$content.'</div>';
-        
-*/
+
+        switch ($siteClassificationLevel) {
+             case 1:
+                 $content = "Unclassified";
+                 break;
+             case 2:
+                $content = "Classified";
+                 break;
+             case 3:
+                $content = "Top Secret";
+                 break;
+        }
+
+
+
+
+
         $cdata = '<div id="optional_bottom_div">
         <link type="text/css" rel="stylesheet" href="plugins/gui.classified/css/style-'.$siteClassificationLevel.'.css" 
         media="screen">'.$content.'</div>';
@@ -50,8 +53,8 @@ class PluginClassified extends AJXP_Plugin {
         $footerTplNode->appendChild($cdataSection);  
 
         
-        $hdata = '<div id="optional_header_div">
-        <link type="text/css" rel="stylesheet" href="plugins/gui.classified/css/style.css" media="screen">'.$content.'</div>';
+        $hdata = '<div id="optional_header_div">'.$content.'</div>';
+        // <link type="text/css" rel="stylesheet" href="plugins/gui.classified/css/style.css" media="screen">'.$content.'</div>';
         
 
         $hcdataSection = $contribNode->ownerDocument->createCDATASection($hdata);
