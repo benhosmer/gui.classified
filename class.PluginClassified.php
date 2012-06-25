@@ -34,10 +34,14 @@ class PluginClassified extends AJXP_Plugin {
             $content = "Top Secret";
         
         // *** Maybe use the $content variable to get the proper CSS file *** 
-
+/*
         $cdata = '<div id="optional_bottom_div">
         <link type="text/css" rel="stylesheet" href="plugins/gui.classified/css/style.css" media="screen">'.$content.'</div>';
         
+*/
+        $cdata = '<div id="optional_bottom_div">
+        <link type="text/css" rel="stylesheet" href="plugins/gui.classified/css/style-'.$siteClassificationLevel.'.css" 
+        media="screen">'.$content.'</div>';
 
 
         $cdataSection = $contribNode->ownerDocument->createCDATASection($cdata);
