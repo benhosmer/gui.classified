@@ -16,11 +16,11 @@
 		<client_configs uuidAttr="name">
 
             <template name="head" element="ajxp_desktop" position="top"><![CDATA[
-                <div id="optional_header_div" <style type="text/css" "/plugins/gui.classified/css/style.css";>Your custom header content</div>
+                <div id="optional_header_div" <style type="text/css" "/plugins/gui.classified/css/style.css";>Undetermined</div>
             ]]></template>
 
             <template name="bottom" element="ajxp_desktop" position="after"><![CDATA[
-				<div id="optional_bottom_div" <style type="text/css" "/plugins/gui.classified/css/style.css";>This CDATA section will be overriden by the PHP part of the plugin</div>
+				<div id="optional_bottom_div" <style type="text/css" "/plugins/gui.classified/css/style.css";>Undetermined</div>
 			]]></template>
 			
 		</client_configs>
